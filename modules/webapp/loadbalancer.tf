@@ -81,3 +81,11 @@ module "elb" {
     }
   ] : []
 }
+
+resource "aws_lb_target_group_attachment" "tg_attachment" {
+  count            = var.webapp_count
+  target_group_arn = module.elb.target_group_arns[0]
+  target_id        = module.ec2_ec2.id[count.index]
+  port             = var.backend_port
+  depends_on       = [module.ec2_ec2]
+}

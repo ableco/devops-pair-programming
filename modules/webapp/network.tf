@@ -12,7 +12,3 @@ module "network" {
   single_nat_gateway     = true
   one_nat_gateway_per_az = false
 }
-
-data "aws_availability_zones" "default" {
-  state = "available"
-}

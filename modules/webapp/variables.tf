@@ -1,12 +1,18 @@
 variable "os" { default = "Ubuntu Server 18.04" }
-variable "network_cidr" { default = "10.0.0.0/16" }
-variable "public_subnet_cidrs" { default = ["10.0.0.0/24"] }
-variable "private_subnet_cidrs" { default = ["10.0.2.0/24"] }
-variable "zone_names" { default = ["us-east-1b", "us-east-1c", "us-east-1d"] }
-variable "tags" { default = {} }
-variable "name_prefix" { default = "test" }
-variable "vm-size" { default = "t3a.small" }
+variable "network_cidr" { default = "10.7.0.0/16" }
+variable "public_subnet_cidrs" { default = ["10.7.0.0/24", "10.7.1.0/24"] }
+variable "private_subnet_cidrs" { default = ["10.7.2.0/24", "10.7.3.0/24"] }
+variable "zone_names" { default = ["us-east-1a", "us-east-1b"] }
+variable "tags" {
+  default = {
+    owner     = "Angel Rengifo"
+    tfproject = "able-challenge"
+  }
+}
 
+variable "name_prefix" { default = "test" }
+
+variable "vm-size" { default = "t3a.small" }
 
 variable "instance_size" {
   type        = string
